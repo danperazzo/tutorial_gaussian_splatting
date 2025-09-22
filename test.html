@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Tests - Research Paper Template</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        
+        .test-container {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .test-header {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .run-tests-btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px;
+        }
+        
+        .run-tests-btn:hover {
+            background: #0056b3;
+        }
+        
+        .run-tests-btn:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+        }
+        
+        #test-output {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 15px;
+            margin-top: 20px;
+            white-space: pre-wrap;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            min-height: 200px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .links {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .links a {
+            color: #007bff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        
+        .links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <div class="test-header">
+            <h1>🧪 Website Test Suite</h1>
+            <p>Testing functionality of the research paper template</p>
+        </div>
+        
+        <div class="links">
+            <a href="index.html" target="_blank">🌐 View Website</a>
+            <a href="test.js" target="_blank">📄 View Test Code</a>
+        </div>
+        
+        <div style="text-align: center;">
+            <button id="run-in-iframe" class="run-tests-btn">▶️ Run Tests in Iframe</button>
+            <button id="run-in-new-tab" class="run-tests-btn">🚀 Run Tests in New Tab</button>
+        </div>
+        
+        <div id="test-output" class="hidden"></div>
+        
+        <!-- Hidden iframe for testing -->
+        <iframe id="test-frame" src="" class="hidden"></iframe>
+    </div>
+
+    <script>
+        let testOutput = document.getElementById('test-output');
+        let testFrame = document.getElementById('test-frame');
+        
+        function log(message) {
+            testOutput.textContent += message + '\n';
+            testOutput.scrollTop = testOutput.scrollHeight;
+        }
+        
+        function clearOutput() {
+            testOutput.textContent = '';
+            testOutput.classList.remove('hidden');
+        }
+        
+        function handleIframeLoad() {
+            if (!testFrame.src) return;
+            
+            try {
+                // Inject our test script into the iframe
+                const iframeDoc = testFrame.contentDocument || testFrame.contentWindow.document;
+                
+                // Create and inject test script
+                const script = iframeDoc.createElement('script');
+                script.textContent = `
+                    // Override console.log to send messages to parent
+                    const originalLog = console.log;
+                    console.log = function(...args) {
+                        parent.postMessage({
+                            type: 'test-log',
+                            message: args.join(' ')
+                        }, '*');
+                        originalLog.apply(console, args);
+                    };
+                `;
+                iframeDoc.head.appendChild(script);
+                
+                // Load and run our test file
+                fetch('test.js')
+                    .then(response => response.text())
+                    .then(testCode => {
+                        const testScript = iframeDoc.createElement('script');
+                        testScript.textContent = testCode;
+                        iframeDoc.head.appendChild(testScript);
+                    })
+                    .catch(error => {
+                        log('❌ Error loading test file: ' + error.message);
+                    });
+                    
+            } catch (error) {
+                log('❌ Error accessing iframe: ' + error.message);
+            }
+        }
+        
+        // Listen for messages from iframe
+        window.addEventListener('message', function(event) {
+            if (event.data.type === 'test-log') {
+                log(event.data.message);
+            }
+        });
+        
+        document.getElementById('run-in-iframe').addEventListener('click', function() {
+            clearOutput();
+            log('🔄 Loading website in iframe for testing...');
+            this.disabled = true;
+            
+            setTimeout(() => {
+                testFrame.src = 'index.html';
+                testFrame.onload = handleIframeLoad;
+                this.disabled = false;
+            }, 100);
+        });
+        
+        document.getElementById('run-in-new-tab').addEventListener('click', function() {
+            // Open the website with test script in a new tab
+            const newTab = window.open('index.html', '_blank');
+            
+            clearOutput();
+            log('🚀 Opening website in new tab...');
+            log('⚠️  Check the browser console in the new tab for test results');
+            log('💡 You can also manually test the following features:');
+            log('   • Dark mode toggle button');
+            log('   • Navigation links (Abstract, Introduction, etc.)');
+            log('   • Image carousel controls (← →)');
+            log('   • Video carousel controls');
+            log('   • Copy to Clipboard button in BibTeX section');
+            log('   • Scroll to top button (appears when scrolling down)');
+            
+            // Try to inject test script after a delay
+            setTimeout(() => {
+                try {
+                    fetch('test.js')
+                        .then(response => response.text())
+                        .then(testCode => {
+                            if (!newTab.closed) {
+                                const script = newTab.document.createElement('script');
+                                script.textContent = testCode;
+                                newTab.document.head.appendChild(script);
+                                log('✅ Test script injected into new tab');
+                            }
+                        })
+                        .catch(() => {
+                            log('⚠️  Could not auto-inject tests. Check console manually.');
+                        });
+                } catch (e) {
+                    log('⚠️  Could not auto-inject tests due to cross-origin restrictions.');
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
