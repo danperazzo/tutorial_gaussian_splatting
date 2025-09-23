@@ -7,10 +7,10 @@
     <title>TODO: Paper Title</title>
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="" />
+    <meta name="description" content="Tutorial on 3D Gaussian Splatting" />
     <meta
       name="keywords"
-      content="research papers, academic papers, AI research, robotics research, machine learning, published papers, scientific papers, academic journals"
+      content="gaussian splatting, 3d reconstruction"
     />
     <!-- <meta name="author" content="Research Paper Platform" />
     <meta name="robots" content="index, follow" />
@@ -83,15 +83,6 @@
     <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
   <body>
-    <nav class="nav">
-      <a href="#abstract">Abstract</a>
-      <a href="#introduction">Introduction</a>
-      <a href="#methodology">Methodology</a>
-      <a href="#results">Results</a>
-      <a href="#conclusion">Conclusion</a>
-      <button class="toggle-btn" onclick="toggleDarkMode()">
-        Toggle Dark Mode
-      </button>
     </nav>
 
     <!-- Step 1 Start: Header Part -->
@@ -106,29 +97,21 @@
       <h1>TODO: Paper Title</h1>
       <div class="authors">
         <p>
-          <a href="#">TODO: Author name 1</a><sup>1</sup>,
-          <a href="#">TODO: Author name 2</a><sup>*1,3</sup>,
-          <a href="#">TODO: Author name 3</a><sup>*2</sup>,
-          <a href="#">TODO: Author name 4</a><sup>*1</sup>,
-          <a href="#">TODO: Author name 5</a><sup>2</sup>,
-          <a href="#">TODO: Author name 6</a><sup>1</sup>
+          <a href="#">Vitor Pereira Matias*</a><sup>1</sup>,
+          <a href="#">Daniel Perazzo*</a><sup>2</sup>,
+          <a href="#">Vinícius da Silva</a><sup>3</sup>,
+          <a href="#">Alberto Raposo</a><sup>3</sup>,
+          <a href="#">Luiz Velho</a><sup>2</sup>,
+          <a href="#">Afonso Paiva</a><sup>1</sup>,
+          <a href="#">Tiago Novello</a><sup>2</sup>
         </p>
         <p>
-          <sup>1</sup>TODO: University name 1 &nbsp;&nbsp; <sup>2</sup>TODO:
-          University name 2&nbsp;&nbsp; <sup>3</sup>TODO: University name 3
-        </p>
-        <p>
-          <sup>1</sup
-          ><a href="mailto:example1@email.com">TODO:email1@email.com</a>,
-          <sup>2</sup
-          ><a href="mailto:example2@email.com">TODO:email2@email.com</a>
+          <sup>1</sup>USP-ICMC 1 &nbsp;&nbsp; <sup>2</sup>IMPA 2&nbsp;&nbsp; <sup>3</sup>PUC-Rio 3
         </p>
         <p>
           <em>*Equal Contribution</em
           ><!-- Remove if not applicable -->
         </p>
-        <p>📌 Conference on TODO: Conference name, 2023 (Oral Talk)</p>
-        <p>📌 Presented at TODO: Conference name 2024, Yokohama, Japan.</p>
       </div>
     </div>
 
@@ -142,15 +125,6 @@
     Remove this step if not applicable
     -->
 
-    <div class="buttons">
-      <a href="#" target="_blank">Paper</a>
-      <a href="#" target="_blank">Videos</a>
-      <a href="#" target="_blank">Code</a>
-      <a href="#" target="_blank">Dataset</a>
-      <a href="#" target="_blank">Model</a>
-      <a href="#bibtex">BibTex</a>
-    </div>
-
     <!-- Step 2 End: Button for links -->
 
     <!-- Step 3 Start: Add your paper abstract -->
@@ -160,30 +134,12 @@
     Remove this step if not applicable
     -->
 
-    <!-- Single YouTube Video -->
-    <div class="video-section">
-      <h3>Demo Video</h3>
-      <div class="video-container">
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/ysFav0b472w?si=Rxxp3R6_tkBXAEmP"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen
-        ></iframe>
-      </div>
-      <p>
-        TODO: This is the short explanation paragraph of the video. Add your
-        paragraph here if required
-      </p>
-    </div>
+
 
     <div class="abstract" id="abstract">
       <h2>Abstract</h2>
-      <p>TODO: Add Abstract</p>
+      <p>The problem of 3D reconstruction from posed images is undergoing a fundamental transformation, driven by continuous advances in 3D Gaussian Splatting (3DGS). By modeling scenes explicitly as collections of 3D Gaussians, 3DGS enables efficient rasterization through volumetric splatting, offering thus a seamless integration with common graphics pipelines. Despite its real-time rendering capabilities for novel view synthesis, 3DGS suffers from a high memory footprint, the tendency to bake lighting effects directly into its representation, and limited support for secondary-ray effects.
+This tutorial provides a concise yet comprehensive overview of the 3DGS pipeline, starting from its splatting formulation and then exploring the main efforts in addressing its limitations. Finally, we survey a range of applications that leverage 3DGS for surface reconstruction, avatar modeling, animation, and content generation—highlighting its efficient rendering and suitability for feed-forward pipelines.</p>
     </div>
 
     <!-- Step 3 End: Add your paper abstract -->
@@ -194,30 +150,6 @@
     Please do not remove below H2 heading tag. Add your HTML code after H2 HTML tag or add text inside P HTML tag. 
     Remove this step if not applicable
     -->
-
-    <div class="content-section" id="introduction">
-      <h2>Introduction</h2>
-      <p>TODO: Add Introduction</p>
-    </div>
-
-    <!-- Step 4 End: Add your paper introduction -->
-
-    <!-- Step 5 Start: Add your paper methodology -->
-
-    <!-- 
-    Please do not remove below H2 heading tag. Add your HTML code after H2 HTML tag or add text inside P HTML tag. 
-    Remove this step if not applicable
-    -->
-
-    <div class="content-section" id="methodology">
-      <h2>Methodology</h2>
-      <p>TODO: Add Methodology</p>
-      <ul>
-        <li>TODO</li>
-        <li>TODO</li>
-      </ul>
-    </div>
-
     <!-- Step 5 End: Add your paper methodology -->
 
     <!-- Step 6 Start: Add your paper results -->
@@ -236,188 +168,6 @@
     -> Click Share Button and Click <> Mark
     -> This will give <iframe></iframe> tag code
     -> Replace below <iframe></iframe> tag with your code
-    -->
-
-    <div class="content-section" id="results">
-      <h2>Results</h2>
-      <p>TODO: Add Results</p>
-      <ul>
-        <li>TODO</li>
-        <li>TODO</li>
-      </ul>
-    </div>
-
-    <!-- 3 Images Carousel -->
-    <h3>Image Gallery</h3>
-    <div class="carousel-container" id="imageCarousel">
-      <div class="carousel-track">
-        <div class="carousel-slide">
-          <img src="Assets/Photo1.jpg" alt="Slide 1" />
-        </div>
-        <div class="carousel-slide">
-          <img src="Assets/Photo2.jpg" alt="Slide 2" />
-        </div>
-        <div class="carousel-slide">
-          <img src="Assets/Photo3.jpg" alt="Slide 3" />
-        </div>
-        <div class="carousel-slide">
-          <img src="Assets/Photo4.jpg" alt="Slide 4" />
-        </div>
-        <div class="carousel-slide">
-          <img src="Assets/Photo5.jpg" alt="Slide 5" />
-        </div>
-        <div class="carousel-slide">
-          <img src="Assets/Photo6.jpg" alt="Slide 6" />
-        </div>
-        <div class="carousel-slide">
-          <img src="Assets/Photo7.jpg" alt="Slide 7" />
-        </div>
-        <div class="carousel-slide">
-          <img src="Assets/Photo8.jpg" alt="Slide 8" />
-        </div>
-      </div>
-      <button class="carousel-button prev">←</button>
-      <button class="carousel-button next">→</button>
-      <div class="carousel-indicators"></div>
-    </div>
-
-    <!-- 3 Videos Carousel -->
-    <h3>Video Gallery</h3>
-    <div class="carousel-container" id="videoCarousel">
-      <div class="carousel-track">
-        <div class="carousel-slide">
-          <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/Bhg3uOx9ZPw?si=4Ie__ntcTSvRRi4y"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-          ></iframe>
-        </div>
-        <div class="carousel-slide">
-          <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/xjRALKy6Ajw?si=EMrMe_v9fXOjhi_J"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-          ></iframe>
-        </div>
-        <div class="carousel-slide">
-          <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/aaTUS5Aa8F0?si=NUvuwq8-SzC5RuqQ"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-          ></iframe>
-        </div>
-        <div class="carousel-slide">
-          <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/JficcrhnO78?si=8SryP_KFQ0orNyMt"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-          ></iframe>
-        </div>
-        <div class="carousel-slide">
-          <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/kEdr0ARq48A?si=ADLxnzCBkTDQm28o"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-          ></iframe>
-        </div>
-        <div class="carousel-slide">
-          <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/v_ulHMfDUco?si=0fJGN4AmWj_zP-Ik"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-          ></iframe>
-        </div>
-      </div>
-      <button class="carousel-button prev">←</button>
-      <button class="carousel-button next">→</button>
-      <div class="carousel-indicators"></div>
-    </div>
-
-    <!-- Single YouTube Video -->
-    <div class="video-section">
-      <h3>Demo Video</h3>
-      <div class="video-container">
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/ysFav0b472w?si=Rxxp3R6_tkBXAEmP"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen
-        ></iframe>
-      </div>
-    </div>
-
-    <!-- YouTube Video List -->
-    <div class="video-section">
-      <h3>Demo Videos List</h3>
-      <div class="video-container">
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/videoseries?si=Alenj7M9_gg7Xv49&amp;list=PL95lT3XlM14SgZHmmKn1mGSAAQc8ycq8v"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen
-        ></iframe>
-      </div>
-    </div>
-
-    <!-- Step 6 End: Add your paper results -->
-
-    <!-- Step 7 Start: Add your paper conclusion -->
-
-    <!-- 
-    Please do not remove below H2 heading tag. Add your HTML code after H2 HTML tag or add text inside P HTML tag. 
-    Remove this step if not applicable
-    -->
-
-    <div class="content-section" id="conclusion">
-      <h2>Conclusion</h2>
-      <p>TODO: Add Conclusion</p>
-    </div>
-
-    <!-- Step 7 End: Add your paper conclusion -->
-
-    <!-- Step 8 Start: Add your paper references -->
-
-    <!-- 
-    Please only edit below between CODE tags - TODOs
-    Remove this step if not applicable
     -->
 
     <div class="bibtex-section" id="bibtex">
@@ -448,16 +198,12 @@
     Remove this step if not applicable
     -->
 
-    <div class="content-section" id="acknowledgement">
-      <h2>Acknowledgement</h2>
-      <p>TODO: Add Acknowledgement if applicable or remove this</p>
-    </div>
 
     <!-- Step 9 End: Add your paper acknowledgement -->
 
     <div class="footer">
       <!-- Step 10 Start: Edit footer -->
-      <p>© 2024 [TODO: Add Name or University]. All rights reserved.</p>
+      <p>© 2025 IMPA. All rights reserved.</p>
       <!-- Step 10 End: Edit footer -->
       <!-- Please do not remove below code. -->
       <p>
