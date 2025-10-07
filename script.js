@@ -149,14 +149,24 @@ class Carousel {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const imageCarousel = new Carousel(
-    document.querySelector("#imageCarousel"),
-    3000
-  );
-  const videoCarousel = new Carousel(
-    document.querySelector("#videoCarousel"),
-    5000
-  );
+  const imageCarouselExists = document.querySelector("#imageCarousel");
+  if (imageCarouselExists) {
+    new Carousel(
+      document.querySelector("#imageCarousel"),
+      3000
+    );
+  }
+  
+  const videoCarouselExists = document.querySelector("#videoCarousel");
+  if (videoCarouselExists) {
+    new Carousel(
+      document.querySelector("#videoCarousel"),
+      5000
+    );
+  }
+  if (!imageCarouselExists && !videoCarouselExists) return;
+
+
 
   // Add touch support
   const carousels = [imageCarousel, videoCarousel];
